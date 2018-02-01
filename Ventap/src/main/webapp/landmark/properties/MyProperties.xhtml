@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="plantilla.xhtml">
+
+<ui:define name="contenido">
+<div id="primary" class="content-area">
+			<main id="main" class="site-main noo-container">
+			
+			<div class="noo-row">
+			<div class="noo-main noo-md-9 noo-list-property style-grid column">
+			
+
+          <h:dataTable id="tabProv" class="table table-striped"  styleClass="employeeTable" headerClass="employeeTableHeader"    width="50px" 
+	value="#{propiedadController.sesion.user.propiedades}" var="propiedad"  rendered="#{not empty propiedadController.propiedad}"> <!--Rendered, si quiero se muestre  -->
+		
+		<h:column>
+		<article id="post-928" class="post-928 post type-post status-publish format-gallery post-password-required hentry category-home-decor category-modern-style tag-modern-living post_format-post-format-gallery has-featured list-2-column">
+			<div class="blog-item">
+			
+			<div class="noo-property-item noo-md-6">
+			<div class="noo-property-item-wrap">
+			<div class="noo-item-head">
+			<h4 class="item-title">
+			<i class="ion-bookmark">Image Propertie</i> 
+			</h4>
+			<span class="location">
+			 #{propiedad.direccion}</span>
+			</div>
+			<div class="noo-item-featured">
+			<a href="family-house-in-hudson/index.html" title="Family House in Hudson">
+			<img id="imagen"  src="#{propiedadController.toBase64(propiedad)}" alt="  " />
+			</a>
+			<span class="property-status">#{propiedad.tipo}</span> </div>
+			
+			<div class="noo-action">
+			<span class="count-comment"><i class="fa fa-comment"></i> 0</span>
+			<!--<div class="noo-price">
+			<span class="before-price"></span> <span class="amount"><span class="format_price">&#036; </span>#{propiedad.costo}</span> <span class="after-price"></span> </div>
+			  <div class="noo-action-post">
+			<i class="noo-tooltip-action fa fa-heart-o" data-id="694" data-user="0" data-process="favorites" data-status="add_favorites" data-content="Favorites" data-url="../my-favorites/index.html"></i>
+			<div class="noo-property-sharing">
+			<i class="noo-tooltip-action ion-android-share-alt" data-id="694" data-process="share"></i>
+			<div class="noo-social-property">
+			<a href="#share" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" class="noo-share" title="Share on Facebook" onclick="window.open('http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwp.nootheme.com%2Flandmark%2Fproperties%2Ffamily-house-in-hudson%2F&amp;t=Family+House+in+Hudson','popupFacebook','width=650,height=270,resizable=0, toolbar=0, menubar=0, status=0, location=0, scrollbars=0'); return false;">
+			<i class="fa fa-facebook"></i>
+			</a>
+			<a href="#share" class="noo-share" title="Share on Twitter" onclick="window.open('https://twitter.com/intent/tweet?text=Family+House+in+Hudson&amp;url=http%3A%2F%2Fwp.nootheme.com%2Flandmark%2Fproperties%2Ffamily-house-in-hudson%2F','popupTwitter','width=500,height=370,resizable=0, toolbar=0, menubar=0, status=0, location=0, scrollbars=0'); return false;">
+			<i class="fa fa-twitter"></i></a>
+			<a href="#share" class="noo-share" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=http%3A%2F%2Fwp.nootheme.com%2Flandmark%2Fproperties%2Ffamily-house-in-hudson%2F','popupGooglePlus','width=650,height=226,resizable=0, toolbar=0, menubar=0, status=0, location=0, scrollbars=0'); return false;">
+			<i class="fa fa-google"></i></a>
+			</div> </div>
+			<i class="noo-tooltip-action ion-arrow-swap" data-id="694" data-user="0" data-process="compare" data-content="Compare" data-thumbnail="../wp-content/uploads/2016/08/Ocean-County-custom-home-builder-and-design-firm-Complete-Construction-Remodeling-370x210.jpg"></i>
+			
+			</div>-->
+			</div>
+			</div>
+			</div>
+			
+			<div class="wrap-entry">
+
+				<header class="entry-header">
+				<h2>
+				DEscripción: <a href="../a-living-rent-could-solve-the-housing-crisis-copy/index.html" > #{propiedad.descripcion} </a>
+				</h2>
+				<span class="tag-date">
+				<span>06</span>
+				<span>Sep</span>
+				</span>
+				<div class="item-info">
+				
+				<div class="noo-item-head">
+					<h4 class="item-title">
+					<i class="ion-bookmark">Featured</i> <a href="PropiedadDetalleInvitado.xhtml?id=#{propiedad.codigo}">
+					#{propiedad.descripcion} </a>
+					</h4>
+					
+					</div>
+				</div>
+				</header>
+				
+				
+				<div class="entry-content">
+				<p>There is no excerpt because this is a protected post.</p>
+				Dirección: <span class="location">
+					 #{propiedad.direccion}</span>
+				<BR />	 
+				<span class="before-price"></span> <span class="amount"><span class="format_price">&#036; </span>#{propiedad.costo}</span> <span class="after-price"></span> 
+					 
+				</div>
+				
+				
+				<footer class="entry-footer">
+				<a href="../a-living-rent-could-solve-the-housing-crisis-copy/index.html" class="noo-button read-more">VER MAS DETALLE</a>
+				
+				
+				</footer>
+				
+				</div>
+
+			
+		
+		
+			</div> 
+</article>
+			
+		</h:column>
+	</h:dataTable>
+   
+</div>
+
+<div class=" noo-sidebar noo-md-3">
+<div class="noo-sidebar-wrap">
+<div id="noo_advanced_search_property-2" class="widget widget_noo_advanced_search_property"><h4 class="widget-title">Find Property</h4> <div class="noo-advanced-search-property">
+<form class="noo-advanced-search-property-form" action="http://wp.nootheme.com/landmark/properties/" method="get" accept-charset="utf-8">
+<div class="noo-advanced-search-property-wrap">
+<div class="noo-row noo-box-field">
+<div id="noo-item-keyword-wrap" class="noo-item-wrap noo-md-12"><input maxlength="" type="text" id="keyword" name="keyword" value="" placeholder="Enter Your Keyword..." class="" /></div><div id="noo-item-status-wrap" class="noo-item-wrap noo-md-12"> <select class="noo-chosen " id="noo-item-status" name="status" data-placeholder="All Status">
+<option value="">
+All Status </option>
+<option value="7">For Rent</option><option value="29">For Sale</option> </select>
+</div><div id="noo-item-types-wrap" class="noo-item-wrap noo-md-12"> <select class="noo-chosen " id="noo-item-types" name="types" data-placeholder="All Property Types">
+<option value="">
+All Property Types </option>
+<option value="30">Apartment</option><option value="34">Land</option><option value="32">Multi-Family Home</option> </select>
+</div><div id="noo-item-noo_property_bedrooms-wrap" class="noo-item-wrap noo-md-12"> <select class="noo-chosen " id="noo-item-noo_property_bedrooms" name="noo_property_bedrooms" data-placeholder="All Bedrooms">
+<option value="">
+All Bedrooms </option>
+<option value="3">3</option><option value="5">5</option><option value="6">6</option> </select>
+</div><div id="noo-item-noo_property_bathrooms-wrap" class="noo-item-wrap noo-md-12"> <select class="noo-chosen " id="noo-item-noo_property_bathrooms" name="noo_property_bathrooms" data-placeholder="All Bathrooms">
+<option value="">
+All Bathrooms </option>
+<option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option> </select>
+</div><div id="noo-item-noo_property_garages-wrap" class="noo-item-wrap noo-md-12"> <select class="noo-chosen " id="noo-item-noo_property_garages" name="noo_property_garages" data-placeholder="All Garages">
+<option value="">
+All Garages </option>
+<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="5">5</option> </select>
+</div> <div id="noo-item-price-wrap" class="noo-control noo-item-wrap noo-md-12">
+
+<div class="noo-price">
+<div class="price-slider-range"></div>
+<input type="hidden" name="min_price" class="price_min" data-min="5000" value="5000"/>
+<input type="hidden" name="max_price" class="price_max" data-max="600000" value="600000"/>
+<div class="price-results">
+<span class="min-price">
+<span class="format_price">&#36; </span>nbsp;5,000 </span> -
+<span class="max-price">
+<span class="format_price">&#36; </span>nbsp;6,00,000 </span>
+</div>
+</div>
+</div>
+</div>
+<button type="submit" class="noo-button">
+<span class="ion-search"></span>
+Search </button>
+</div>
+</form>
+</div>
+</div>
+
+ </div>
+
+</div>
+</div>
+</main>
+</div>
+</ui:define>
+
+</ui:composition>
+
+</html>

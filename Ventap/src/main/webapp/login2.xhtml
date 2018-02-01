@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<head>
+	<title>Login V16</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="resources/login2/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/login2/vendor/bootstrap/css/bootstrap.min.css"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/login2/fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/login2/fonts/Linearicons-Free-v1.0.0/icon-font.min.css"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/login2/vendor/animate/animate.css"/>
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="resources/login2/vendor/css-hamburgers/hamburgers.min.css"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/login2/vendor/animsition/css/animsition.min.css"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/login2/vendor/select2/select2.min.css"/>
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="resources/login2/vendor/daterangepicker/daterangepicker.css"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="resources/login2/css/util.css"/>
+	<link rel="stylesheet" type="text/css" href="resources/login2/css/main.css"/>
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('resources/login2/images/fondo.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					VentApp
+				</span>
+				<h:form id="logform" class="login100-form validate-form p-b-33 p-t-5">
+
+					<div class="wrap-input100 validate-input" a:data-validate = "Enter username">
+						<h:inputText id="usr" value="#{login.email}" class="input100" name="username" a:placeholder="User name"/>
+						<span class="focus-input100" a:data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" a:data-validate="Enter password">
+						<h:inputSecret id="pas" value="#{login.pass}"  class="input100" name="pass" a:placeholder="Password"/>
+						<span class="focus-input100" a:data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						 <h:commandButton action="#{login.submit()}" id="but"  value="Login"   class="login100-form-btn" >
+						</h:commandButton>
+						
+						
+					</div>
+					
+					<div class="container-login100-form-btn m-t-32">
+						
+						<a href="public/Register.xhtml" >Crear nueva Cuenta
+						</a>
+						
+					</div>
+					
+				</h:form>
+				<h:form id="formredirecciona" style="display: none">
+					
+				</h:form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	<div id="re" >
+		
+	</div>
+	
+			
+			<script>
+			function ejec(){
+				
+			}
+					function ejecuta(){
+						
+						alert(document.getElementById('logform:redirect').value);
+						if(document.getElementById('logform:redirect').value=="NO"){
+								
+							document.getElementById('opciones').style.display='block';document.getElementById('fadec').style.display='block';
+						}
+					}
+			
+					function mostrarCategorias(){
+						alert(document.getElementById('logform:redirect').value);
+						if(document.getElementById('logform:redirect').value=="si"){
+							document.getElementById('opciones').style.display='block';document.getElementById('fadec').style.display='block';
+						}
+					}	
+					function quitarDivcategorias(){
+						document.getElementById('opciones').style.display='none';document.getElementById('fadec').style.display='none';
+					}
+			</script>
+			 
+			
+			
+			<div id="fade" class="black_overlay"></div>
+				<style>
+					.black_overlay {
+					  display: none;
+					  position: absolute;
+					  top: 0%;
+					  left: 0%;
+					  width: 100%;
+					  height: 100%;
+					  background-color: black;
+					  z-index: 1001;
+					  -moz-opacity: 0.8;
+					  opacity: .80;
+					  filter: alpha(opacity=80);
+					}
+					.white_content {
+					  display: none;
+					  position: absolute;
+					  top: 15%;
+					  left: 15%;
+					  width: 75%;
+					  height: 75%;
+					  padding: 16px;
+					  border: 16px solid orange;
+					  background-color: white;
+					  z-index: 1002;
+					  overflow: auto;
+					}
+					#close {
+					    display:block;
+    					position:absolute;
+    					top:-0px;
+    					right:-0px;
+    					width:27px;
+    					height:27px;
+    					background:url('http://cdn-sg1.pgimgs.com/images/pg/close-button.png') no-repeat center center;
+
+					}
+					#close:hover {
+					    display:block;
+    					position:absolute;
+    					top:2px;
+    					right:2px;
+    					width:27px;
+    					height:27px;
+    					transition-property: height, width, box-shadow, background-color, font-size;
+  						box-shadow: 2px 2px 10px black, 0 0 0 9999px rgba(128,128,128,.5);
+    					background:url('http://cdn-sg1.pgimgs.com/images/pg/close-button.png') no-repeat center center;
+					}
+					
+					#closeu {
+					    display:block;
+    					position:absolute;
+    					top:-0px;
+    					right:-0px;
+    					width:27px;
+    					height:27px;
+    					background:url('http://cdn-sg1.pgimgs.com/images/pg/close-button.png') no-repeat center center;
+
+					}
+					#closeu:hover {
+					    display:block;
+    					position:absolute;
+    					top:2px;
+    					right:2px;
+    					width:27px;
+    					height:27px;
+    					transition-property: height, width, box-shadow, background-color, font-size;
+  						box-shadow: 2px 2px 10px black, 0 0 0 9999px rgba(128,128,128,.5);
+    					background:url('http://cdn-sg1.pgimgs.com/images/pg/close-button.png') no-repeat center center;
+					}
+					#closec {
+					    display:block;
+    					position:absolute;
+    					top:-0px;
+    					right:-0px;
+    					width:27px;
+    					height:27px;
+    					background:url('http://cdn-sg1.pgimgs.com/images/pg/close-button.png') no-repeat center center;
+
+					}
+					#closec:hover {
+					    display:block;
+    					position:absolute;
+    					top:2px;
+    					right:2px;
+    					width:27px;
+    					height:27px;
+    					transition-property: height, width, box-shadow, background-color, font-size;
+  						box-shadow: 2px 2px 10px black, 0 0 0 9999px rgba(128,128,128,.5);
+    					background:url('http://cdn-sg1.pgimgs.com/images/pg/close-button.png') no-repeat center center;
+					}
+				</style>
+			<div id="opciones" class="white_content">
+						  					<span id="closec" onclick="document.getElementById('opciones').style.display='none';document.getElementById('fadec').style.display='none'"></span>
+						  			
+						    	<div id="category"></div>
+								<h2>Opciones</h2>
+								<h:form id="formcat">
+								<div class="row uniform">
+															
+															<div class="6u 12u$(xsmall)">
+															
+															  <label>USUARIO</label>
+																<h:outputText value="#{loginControlador.usuario.usrNombre}" id="codC"/>
+																	
+															</div>
+															<div class="6u 12u$(xsmall)">
+															
+															<label>Entrar</label>
+																<a href="consultaFac.xhtml?id=#{loginControlador.usuario.usrCodigo}"><ajax />CONSULTA DE FACTURAS</a>
+															</div>
+															
+															
+														</div>
+						        
+						          </h:form>
+						  		<h1 align="center"><a onclick="javascript:quitarDivcategorias()">Cancel</a></h1>
+						  		</div>
+						  		
+						  		<div id="fadec" class="black_overlay"></div>
+	
+<!--===============================================================================================-->
+	<script src="resources/login2/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/login2/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/login2/vendor/bootstrap/js/popper.js"></script>
+	<script src="resources/login2/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/login2/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/login2/vendor/daterangepicker/moment.min.js"></script>
+	<script src="resources/login2/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/login2/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="resources/login2/js/main.js"></script>
+
+</body>
+</html>

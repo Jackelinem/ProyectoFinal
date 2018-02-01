@@ -1,0 +1,170 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:f="http://java.sun.com/jsf/core"
+      			xmlns:h="http://java.sun.com/jsf/html"
+				template="templateForm.xhtml">
+			
+		
+			
+			<ui:define name="titulo">Detalle de la Propiedad</ui:define>
+			
+			<ui:define name="contenido">
+			<f:metadata>
+
+				<f:viewParam name="id" value="#{propiedadController.id}" />
+				
+			</f:metadata>
+          <h:form id="detalle"  class="form-horizontal">
+          <h:message globalOnly="true"/>
+            <div class="control-group">
+              <label class="control-label">Descripcion</label>
+              <div class="controls">
+              	<h:outputText class="span11" value="#{propiedadController.propiedad.descripcion}"></h:outputText>
+                
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Direccion :</label>
+              <div class="controls">
+              	<h:outputText class="span11" value="#{propiedadController.propiedad.direccion}"></h:outputText>
+                
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label"># num imagenes :</label>
+              <div class="controls">
+              	<h:outputText class="span11" value="#{propiedadController.propiedad.imagenes.size()}"></h:outputText>
+                
+              </div>
+            </div>
+            
+            <div class="widget-box">
+	          <div class="widget-title">
+	            <h5>Comentarios </h5>
+	            
+	          </div>
+	          <div class="control-group">
+              <div class="controls">
+              	<h:inputText id="co" class="span11" value="#{propiedadController.com}"></h:inputText>
+					<label class="control-label">Privado :  </label> <h:selectOneRadio id="pri" value="#{propiedadController.privado}">
+					    <f:selectItem itemValue="true" itemLabel="Yes"/>
+					    <f:selectItem itemValue="false" itemLabel="No"/>
+					</h:selectOneRadio>                
+				<h:commandButton value="Enviar" action="#{propiedadController.agregarComentario()}">
+                <f:ajax execute="co pri" render="customers"></f:ajax>
+                </h:commandButton>
+              </div>
+            </div>
+	          	<div class="widget-content nopadding">
+			            <h:dataTable id="customers" var="com" value="#{propiedadController.listComentarios}" styleClass="employeeTable"
+					         headerClass="employeeTableHeader"
+					         rowClasses="employeeTableOddRow,employeeTableEvenRow"  width="100%" >
+								<h:column>
+								
+								<h:outputLabel style="color: #085F78; font-style:italic "  value="#{com.comentario} " />
+								<a href="javascript:mostrarClientes();"><ajax action="#{propiedadController.seleccionarComentario(com)}"/>#{com.persona.nombres} #{com.persona.apellido}</a>
+								</h:column>
+								
+						</h:dataTable>			
+	          </div>
+	          
+        	</div>
+            
+            <div class="widget-box">
+          <div class="widget-title">
+            <h3>Galeria</h3>
+          </div>
+          <style>
+			      		#imagen {
+			      			height: 300px;
+			      			width: 500px;
+			      			background-color: #CFEFFA;
+			      			border-color:#F1F8FA;
+			      			
+			      		}
+			      		
+			      		#detalle {
+						    background-color: #9CD0E0;
+						    border-color:#1F5E72;
+						    font-size: 12px;
+						    font-family: Verdana, Arial, sans-serif;
+						    color: #000000; 
+						}
+						 
+						
+		</style>
+          <div class="widget-content nopadding">
+            <h:dataTable id="tabImg" class="table table-bordered table-striped" var="fotos" value="#{propiedadController.propiedad.imagenes}" styleClass="employeeTable"
+					         headerClass="employeeTableHeader"
+					         rowClasses="employeeTableOddRow,employeeTableEvenRow"  width="100%" align="center">
+		
+							<h:column>
+							<center>
+							<h:outputLabel value="DESCRIPCION" />
+						<h:outputLabel style="color: #085F78"  value="#{fotos.descripcionImagen}" />
+							</center>
+							</h:column>
+							<h:column>
+							<center>
+							<f:facet name="header">Imagen</f:facet>
+							<IMG id="imagen" src="#{propiedadController.imageToBase64(fotos.img)}" />
+							</center>
+							</h:column>
+							
+						</h:dataTable>
+			
+          </div>
+          
+        </div>
+            <div>
+        		<h:commandButton class="btn btn-info" value="SALIR" action="index.xhtml"/>
+        	</div>
+            
+          </h:form>
+			
+		</ui:define>
+		
+		<ui:define name="contenido2">
+			<h:form id="formcat">
+							<!--  <div class="6u 12u$(xsmall)">-->
+										<center>
+										<div class="control-group">
+											<h:outputLabel class="control-label"  value="NOMBRES"/>
+												<div class="controls">
+													<h:outputText class="span11" value="#{propiedadController.comSelec.persona.nombres} #{propiedadController.comSelec.persona.apellido}" id="nom">
+                    								</h:outputText>
+                    							</div>
+											</div>
+											<div class="control-group">
+												<h:outputLabel class="control-label"  value="E-Mail"/>
+												<div class="controls">
+													<h:outputText class="span11" value="#{propiedadController.comSelec.persona.email}" id="ape" >
+                    								</h:outputText>
+                    							</div>
+											</div>
+											<div class="control-group">
+												<h:outputLabel class="control-label"  value="Direccion"/>
+												<div class="controls">
+													<h:outputText class="span11" value="#{propiedadController.comSelec.persona.direccion}" id="ema" onkeypress="if (event.keyCode == 13) {onchange(); return false; }">
+                 									</h:outputText>
+                 								</div>															
+                    						</div>
+											</center>				
+								
+						        <h:dataTable id="tel" class="table table-bordered table-striped" var="cli" value="#{propiedadController.comSelec.persona.telefonos}" >
+						            <h:column>
+						                <f:facet name="header">Numero</f:facet>
+						                #{cli.numero}
+						            </h:column>
+						            <h:column>
+						                <f:facet name="header">tipo</f:facet>
+						                #{cli.tipo}
+						            </h:column>
+						            
+						          </h:dataTable>
+						          </h:form>
+		</ui:define>				  		
+		
+		
+</ui:composition>
+
